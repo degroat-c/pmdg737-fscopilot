@@ -1783,17 +1783,12 @@ shared:
   - get: A:TRANSPONDER CODE:1, Number  
   - get: L:switch_118_73X, Number
     set: |
-      if (typeof this.prev118 === 'undefined') this.prev118 = value;
-      let result = '';
-    
-      if (value > this.prev118) {
-        result = '11801 (>K:ROTOR_BRAKE)';  // Moving UP
-      } else if (value < this.prev118) {
-        result = '11802 (>K:ROTOR_BRAKE)';  // Moving DOWN
+      switch (value) {
+        case 0:   return '11802 (>K:ROTOR_BRAKE)'
+        case 50:  return '11801 (>K:ROTOR_BRAKE)'
+        case 100: return '11801 (>K:ROTOR_BRAKE)'
+        default:  return ''
       }
-    
-      this.prev118 = value;
-      return result;
   - get: L:switch_17_73X, Number
     set: "`${1700 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_27_73X, Number
