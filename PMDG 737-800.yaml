@@ -170,9 +170,9 @@ shared:
   - get: L:switch_74_73X
   - get: L:switch_75_73X, Number
   - get: L:switch_78_73X, Number
-  - get: L:switch_79_73X
+  - get: L:switch_79_73X, Number
   - get: L:switch_80_73X, Number
-  - get: L:switch_81_73X
+  - get: L:switch_81_73X, Number
   - get: L:switch_93_73X
     set: 9301 (>K:ROTOR_BRAKE)
   - get: L:switch_94_73X, Number
@@ -193,16 +193,14 @@ shared:
   - get: L:switch_106_73X
     set: 10601 (>K:ROTOR_BRAKE)
   - get: L:switch_109_73X, Number
-  - get: L:switch_110_73X
+  - get: L:switch_110_73X, Number
   - get: L:switch_111_73X, Number
   - get: L:switch_112_73X, Number
-  - get: L:switch_113_73X
-    set: 11301 (>K:ROTOR_BRAKE)
   - get: L:switch_113_73X, Number
-  - get: L:switch_114_73X
-    set: 11401 (>K:ROTOR_BRAKE)
+    set: 11301 (>K:ROTOR_BRAKE)
   - get: L:switch_114_73X, Number
-  - get: L:switch_115_73X
+    set: 11401 (>K:ROTOR_BRAKE)
+  - get: L:switch_115_73X, Number
     set: 11501 (>K:ROTOR_BRAKE)
   - get: L:switch_116_73X
     set: 11601 (>K:ROTOR_BRAKE)
@@ -211,7 +209,7 @@ shared:
   - get: L:switch_119_73X, Number
   - get: L:switch_120_73X, Number
   - get: L:switch_121_73X, Number
-  - get: L:switch_122_73X
+  - get: L:switch_122_73X, Number
     set: 12201 (>K:ROTOR_BRAKE)
   - get: L:switch_122_73X, Number
   - get: L:switch_124_73X
