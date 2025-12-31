@@ -1784,7 +1784,20 @@ shared:
     set: 1 (>K:XPNDR_IDENT_ON)
   - get: A:TRANSPONDER CODE:1, Number  
   - get: L:switch_118_73X, Number
-    set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
+    set: |
+      if (typeof this.prev118 === 'undefined') this.prev118 = value;
+      let result = '';
+      
+      if (value > this.prev118) {
+        // Moving up (OFF→ON or ON→START)
+        result = value === 100 ? '11807 (>K:ROTOR_BRAKE)' : '11802 (>K:ROTOR_BRAKE)';
+      } else if (value < this.prev118) {
+        // Moving down (START→ON or ON→OFF)
+        result = '11808 (>K:ROTOR_BRAKE)';
+      }
+      
+      this.prev118 = value;
+      return result;
   - get: L:switch_17_73X, Number
     set: "`${1700 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_27_73X, Number
