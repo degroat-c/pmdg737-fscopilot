@@ -1785,12 +1785,17 @@ shared:
   - get: A:TRANSPONDER CODE:1, Number  
   - get: L:switch_118_73X, Number
     set: |
-      switch (value) {
-        case 0:   return '11800 (>K:ROTOR_BRAKE)'
-        case 50:  return '11801 (>K:ROTOR_BRAKE)'
-        case 100: return '11802 (>K:ROTOR_BRAKE)'
-        default:  return ''
+      if (typeof this.prev118 === 'undefined') this.prev118 = value;
+      let result = '';
+    
+      if (value > this.prev118) {
+        result = '11801 (>K:ROTOR_BRAKE)';  // Moving UP
+      } else if (value < this.prev118) {
+        result = '11802 (>K:ROTOR_BRAKE)';  // Moving DOWN
       }
+    
+      this.prev118 = value;
+      return result;
   - get: L:switch_17_73X, Number
     set: "`${1700 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_27_73X, Number
@@ -1803,6 +1808,7 @@ shared:
     set: "`${3000 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_123_73X, Number
     set: "`${12300 + (value === 0 ? 1 : value === 50 ? 2 : 10)} (>K:ROTOR_BRAKE)`"
+
 master:
   - get: A:GENERAL ENG THROTTLE LEVER POSITION:1, Position 16k
     set: (>K:THROTTLE1_SET)
