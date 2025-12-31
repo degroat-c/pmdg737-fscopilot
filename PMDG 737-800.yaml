@@ -211,7 +211,6 @@ shared:
   - get: L:switch_121_73X, Number
   - get: L:switch_122_73X, Number
     set: 12201 (>K:ROTOR_BRAKE)
-  - get: L:switch_122_73X, Number
   - get: L:switch_124_73X
     set: 12401 (>K:ROTOR_BRAKE)
   - get: L:switch_125_73X
@@ -1631,10 +1630,12 @@ shared:
   - get: L:CABaroKnob, number
   # OVHD FL ALT/LAND ALT
   - get: L:switch_218_73X, number
-    set: "`${21800 + (value === 0 ? 1 : value === 50 ? 2 : 10)} (>K:ROTOR_BRAKE)`"
+    set: "`${21800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
   - get: L:NGX_SWITCH_220_A
   - get: L:switch_220_73X, number
     set: "`${value * -0.03 + 14508} (>K:ROTOR_BRAKE)`"
+  - get: L:switch_118_73X, number
+    set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
   #Radios
   - get: L:NGX_SWITCH_726_A
   - get: L:switch_726_73X, number
@@ -1781,8 +1782,6 @@ shared:
   - get: A:TRANSPONDER IDENT:1, Bool
     set: 1 (>K:XPNDR_IDENT_ON)
   - get: A:TRANSPONDER CODE:1, Number  
-  - get: L:switch_118_73X, Number
-    set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 10)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_17_73X, Number
     set: "`${1700 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_27_73X, Number
