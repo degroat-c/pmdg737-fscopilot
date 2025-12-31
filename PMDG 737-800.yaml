@@ -1786,9 +1786,9 @@ shared:
   - get: L:switch_118_73X, Number
     set: |
       switch (value) {
-        case 0:   return '11801 (>K:ROTOR_BRAKE)'
-        case 50:  return '11802 (>K:ROTOR_BRAKE)'
-        case 100: return '11807 (>K:ROTOR_BRAKE)'
+        case 0:   return '11800 (>K:ROTOR_BRAKE)'
+        case 50:  return '11801 (>K:ROTOR_BRAKE)'
+        case 100: return '11802 (>K:ROTOR_BRAKE)'
         default:  return ''
       }
   - get: L:switch_17_73X, Number
