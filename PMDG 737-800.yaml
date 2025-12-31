@@ -1782,13 +1782,7 @@ shared:
     set: 1 (>K:XPNDR_IDENT_ON)
   - get: A:TRANSPONDER CODE:1, Number  
   - get: L:switch_118_73X, Number
-    set: |
-      switch (value) {
-        case 0:   return '11802 (>K:ROTOR_BRAKE)'
-        case 50:  return '11801 (>K:ROTOR_BRAKE)'
-        case 100: return '11801 (>K:ROTOR_BRAKE)'
-        default:  return ''
-      }
+    set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 10)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_17_73X, Number
     set: "`${1700 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_27_73X, Number
