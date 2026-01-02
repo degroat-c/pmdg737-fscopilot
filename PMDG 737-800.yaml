@@ -117,7 +117,9 @@ shared:
     set: 101 (>K:ROTOR_BRAKE)
   - get: L:switch_02_73X
   - get: L:switch_03_73X, Number
+    set: "`${value > current ? 302 : 301} (>K:ROTOR_BRAKE)`"
   - get: L:switch_04_73X, Number
+    set: "`${value > current ? 402 : 401} (>K:ROTOR_BRAKE)`"
   - get: L:switch_05_73X
     set: 501 (>K:ROTOR_BRAKE)
   - get: L:switch_06_73X
@@ -139,6 +141,7 @@ shared:
   - get: L:switch_29_73X, Number
   - get: L:switch_30_73X, Number
   - get: L:switch_36_73X, Number
+    set: "`${value > current ? 3602 : 3601} (>K:ROTOR_BRAKE)`"
   - get: L:switch_37_73X
     set: 3701 (>K:ROTOR_BRAKE)
   - get: L:switch_38_73X
@@ -153,6 +156,7 @@ shared:
     set: 4601 (>K:ROTOR_BRAKE)
   - get: L:switch_49_73X, Number
   - get: L:switch_58_73X, Number
+    set: "`${value > current ? 5802 : 5801} (>K:ROTOR_BRAKE)`"
   - get: L:switch_59_73X, Number
   - get: L:switch_60_73X, Number
   - get: L:switch_61_73X, Number
@@ -176,9 +180,9 @@ shared:
   - get: L:switch_93_73X
     set: 9301 (>K:ROTOR_BRAKE)
   - get: L:switch_94_73X, Number
-    set: "`${value} (>K:ROTOR_BRAKE)`"
+    set: "`${value > current ? 9408 : 9407} (>K:ROTOR_BRAKE)`"
   - get: L:switch_95_73X, Number
-    set: "`${value} (>K:ROTOR_BRAKE)`"
+    set: "`${value > current ? 9502 : 9501} (>K:ROTOR_BRAKE)`"
   - get: L:switch_96_73X
     set: 9601 (>K:ROTOR_BRAKE)
   - get: L:switch_97_73X
@@ -193,6 +197,7 @@ shared:
   - get: L:switch_106_73X
     set: 10601 (>K:ROTOR_BRAKE)
   - get: L:switch_109_73X, Number
+    set: "`${value > current ? 10902 : 10901} (>K:ROTOR_BRAKE)`"
   - get: L:switch_110_73X, Number
   - get: L:switch_111_73X, Number
   - get: L:switch_112_73X, Number
@@ -310,7 +315,9 @@ shared:
   - get: L:switch_244_73X, Number
     set: "`${value * -0.03 + 24404} (>K:ROTOR_BRAKE)`"
   - get: L:switch_255_73X, Number
+    set: "`${value > current ? 25502 : 25501} (>K:ROTOR_BRAKE)`"
   - get: L:switch_256_73X, Number
+    set: "`${value > current ? 25602 : 25601} (>K:ROTOR_BRAKE)`"
   - get: L:switch_257_73X
     set: 25701 (>K:ROTOR_BRAKE)
   - get: L:switch_258_73X, Number
@@ -1634,10 +1641,10 @@ shared:
   - get: L:CABaroKnob, number
   # OVHD FL ALT/LAND ALT
   - get: L:switch_218_73X, number
-    set: "`${this.prev218 === undefined ? (this.prev218 = value, '21807 (>K:ROTOR_BRAKE)') : ([Math.abs(value - this.prev218) > 50 ? (value < this.prev218 ? 21807 : 21808) : (value > this.prev218 ? 21807 : 21808), this.prev218 = value][0] + ' (>K:ROTOR_BRAKE)')}`"
+    set: "`${Math.abs(value - current) > 50 ? (value < current ? 21807 : 21808) : (value > current ? 21807 : 21808)} (>K:ROTOR_BRAKE)`"
   - get: L:NGX_SWITCH_220_A
   - get: L:switch_220_73X, number
-    set: "`${value * -0.03 + 14508} (>K:ROTOR_BRAKE)`"
+    set: "`${Math.abs(value - current) > 50 ? (value < current ? 22007 : 22008) : (value > current ? 22007 : 22008)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_118_73X, number
     set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
   #Radios
