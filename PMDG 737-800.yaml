@@ -207,10 +207,14 @@ shared:
   - get: L:switch_117_73X
     set: 11701 (>K:ROTOR_BRAKE)
   - get: L:switch_119_73X, Number
+    set: "`${value > current ? 11902 : 11901} (>K:ROTOR_BRAKE)`"
   - get: L:switch_120_73X, Number
   - get: L:switch_121_73X, Number
+    set: "`${value > current ? 12102 : 12101} (>K:ROTOR_BRAKE)`"
   - get: L:switch_122_73X, Number
     set: 12201 (>K:ROTOR_BRAKE)
+  - get: L:switch_123_73X, Number
+    set: "`${value >= 1 ? 12308 : 12307} (>K:ROTOR_BRAKE)`"
   - get: L:switch_124_73X
     set: 12401 (>K:ROTOR_BRAKE)
   - get: L:switch_125_73X
@@ -1630,7 +1634,7 @@ shared:
   - get: L:CABaroKnob, number
   # OVHD FL ALT/LAND ALT
   - get: L:switch_218_73X, number
-    set: "`${21800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
+    set: "`${this.prev218 === undefined ? (this.prev218 = value, '21807 (>K:ROTOR_BRAKE)') : ([Math.abs(value - this.prev218) > 50 ? (value < this.prev218 ? 21807 : 21808) : (value > this.prev218 ? 21807 : 21808), this.prev218 = value][0] + ' (>K:ROTOR_BRAKE)')}`"
   - get: L:NGX_SWITCH_220_A
   - get: L:switch_220_73X, number
     set: "`${value * -0.03 + 14508} (>K:ROTOR_BRAKE)`"
@@ -1792,8 +1796,6 @@ shared:
     set: "`${2900 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_30_73X, Number
     set: "`${3000 + (value === 0 ? 2 : value === 50 ? 0 : 1)} (>K:ROTOR_BRAKE)`"
-  - get: L:switch_123_73X, Number
-    set: "`${12300 + (value === 0 ? 1 : value === 50 ? 2 : 10)} (>K:ROTOR_BRAKE)`"
 
 master:
   - get: A:GENERAL ENG THROTTLE LEVER POSITION:1, Position 16k
