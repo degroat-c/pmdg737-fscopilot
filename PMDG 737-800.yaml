@@ -179,10 +179,6 @@ shared:
   - get: L:switch_81_73X, Number
   - get: L:switch_93_73X
     set: 9301 (>K:ROTOR_BRAKE)
-  - get: L:switch_94_73X, Number
-    set: "`${value > current ? 9408 : 9407} (>K:ROTOR_BRAKE)`"
-  - get: L:switch_95_73X, Number
-    set: "`${value > current ? 9502 : 9501} (>K:ROTOR_BRAKE)`"
   - get: L:switch_96_73X
     set: 9601 (>K:ROTOR_BRAKE)
   - get: L:switch_97_73X
@@ -396,14 +392,12 @@ shared:
   - get: L:switch_304_73X, Number
     set: "`${value * -0.03 + 30404} (>K:ROTOR_BRAKE)`"
   - get: L:switch_305_73X, Number
-    set: "`${value} (>K:ROTOR_BRAKE)`"
   - get: L:switch_306_73X, Number
-    set: "`${value} (>K:ROTOR_BRAKE)`"
   - get: L:switch_307_73X, Number
-    set: "`${value} (>K:ROTOR_BRAKE)`"
   - get: L:switch_311_73X
     set: 31101 (>K:ROTOR_BRAKE)
   - get: L:switch_313_73X, Number
+    set: "`${value > current ? 31302 : 31301} (>K:ROTOR_BRAKE)`"
   - get: L:switch_314_73X, Number
     set: "`${value * -0.03 + 31404} (>K:ROTOR_BRAKE)`"
   - get: L:switch_3141_73X, Number
@@ -1648,10 +1642,10 @@ shared:
   - get: L:switch_118_73X, number
     set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
   #Radios
-  - get: L:NGX_SWITCH_726_A
   - get: L:switch_726_73X, number
-  - get: L:NGX_SWITCH_727_A
+    set: "`${value > current ? 72602 : 72601} (>K:ROTOR_BRAKE)`"
   - get: L:switch_727_73X, number
+    set: "`${value > current ? 72702 : 72701} (>K:ROTOR_BRAKE)`"
   - get: A:ADF ACTIVE FREQUENCY:1, Frequency ADF BCD32
     set: (>K:ADF_ACTIVE_SET)
   - get: A:ADF ACTIVE FREQUENCY:2, Frequency ADF BCD32
