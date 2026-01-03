@@ -608,25 +608,8 @@ shared:
     set: "`${value * -0.03 + 44604} (>K:ROTOR_BRAKE)`"
   - get: L:switch_455_73X, Number
     #set: "`${value > current ? 45501 : value < current ? 45502 : ''} (>K:ROTOR_BRAKE)`"
-    set: "`${(() => {
-            // Map raw value into a stable zone: 0=UP, 1=OFF, 2=DOWN
-            const zone =
-              (value >= 70) ? 2 :
-              (value <= 30) ? 0 :
-              1;
+    set: "`${(()=>{const z=value>=70?2:value<=30?0:1;const p=current>=70?2:current<=30?0:1;return z===p?'':(z>p?45501:45502);})()} (>K:ROTOR_BRAKE)`"
 
-            const prevZone =
-              (current >= 70) ? 2 :
-              (current <= 30) ? 0 :
-              1;
-
-            if (zone === prevZone) return '';
-
-            // Only fire when entering a NEW zone
-            // Decide what transitions you want to command:
-            if (zone > prevZone) return 45501; // one notch down
-            else return 45502;                 // one notch up
-          })()} (>K:ROTOR_BRAKE)`"
   - get: L:switch_4552_73X
     set: 455201 (>K:ROTOR_BRAKE)
   - get: L:switch_460_73X, Number
