@@ -222,7 +222,7 @@ shared:
   - get: L:switch_122_73X, Number
     set: 12201 (>K:ROTOR_BRAKE)
   - get: L:switch_123_73X, Number
-    set: "`${value !== current ? (value === 0 ? 12307 : value === 50 ? 12301 : 12308) : ''} (>K:ROTOR_BRAKE)`"
+    set: "`${value > current ? 12302 : value < current ? 12301 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_124_73X
     set: 12401 (>K:ROTOR_BRAKE)
   - get: L:switch_125_73X
