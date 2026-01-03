@@ -959,6 +959,7 @@ shared:
   - get: L:switch_693_73X, Number
     set: "`${value * -0.03 + 69304} (>K:ROTOR_BRAKE)`"
   - get: L:switch_694_73X, Number
+    set: "`${value > current ? 69402 : value < current ? 69401 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_696_73X, Number
     set: "`${value > current ? 69602 : value < current ? 69601 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_697_73X, Number
@@ -976,6 +977,7 @@ shared:
   - get: L:switch_704_73X, Number
     set: "`${value * -0.03 + 70404} (>K:ROTOR_BRAKE)`"
   - get: L:switch_705_73X, Number
+    set: "`${value > current ? 70502 : value < current ? 70501 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_709_73X
     set: 70901 (>K:ROTOR_BRAKE)
   - get: L:switch_710_73X
@@ -987,6 +989,7 @@ shared:
   - get: L:switch_714_73X, Number
     set: "`${value * 358.4125 + -14337} (>K:AXIS_FLAPS_SET)`"
   - get: L:switch_715_73X, Number
+    set: "`${value > current ? 71502 : value < current ? 71501 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_903_73X, Number
     set: "`${value * -0.03 + 90304} (>K:ROTOR_BRAKE)`"
   - get: L:switch_904_73X, Number
