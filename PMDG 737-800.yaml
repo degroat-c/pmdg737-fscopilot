@@ -607,7 +607,7 @@ shared:
   - get: L:switch_446_73X, Number
     set: "`${value * -0.03 + 44604} (>K:ROTOR_BRAKE)`"
   - get: L:switch_455_73X, Number
-    set: "`${value > 50 ? 45501 : value < 32 ? 45501 : 45502} (>K:ROTOR_BRAKE)`"
+    set: "`${value > current ? 45501 : value < current ? 45502 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_4552_73X
     set: 455201 (>K:ROTOR_BRAKE)
   - get: L:switch_460_73X, Number
