@@ -160,7 +160,7 @@ shared:
   - get: L:switch_59_73X, Number
     set: "`${value >= 1 ? 5907 : 5908} (>K:ROTOR_BRAKE)`"
   - get: L:switch_60_73X, Number
-    set: "`${value !== current ? (value === 0 ? 6008 : value === 50 ? 6001 : 6007) : ''} (>K:ROTOR_BRAKE)`"
+    set: "`${value === 0 ? 6008 : value === 50 ? 6001 : 6007} (>K:ROTOR_BRAKE)`"
   - get: L:switch_61_73X, Number
     set: "`${value >= 1 ? 6107 : 6108} (>K:ROTOR_BRAKE)`"
   - get: L:switch_62_73X, Number
