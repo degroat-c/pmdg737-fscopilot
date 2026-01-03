@@ -329,6 +329,7 @@ shared:
   - get: L:switch_257_73X
     set: 25701 (>K:ROTOR_BRAKE)
   - get: L:switch_258_73X, Number
+    set: "`${value > current ? 25802 : 25801} (>K:ROTOR_BRAKE)`"
   - get: L:switch_264_73X
     set: 26401 (>K:ROTOR_BRAKE)
   - get: L:switch_265_73X
