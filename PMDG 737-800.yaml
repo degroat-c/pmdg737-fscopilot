@@ -448,7 +448,9 @@ shared:
   - get: L:switch_334_73X, Number
     set: "`${value} (>K:ROTOR_BRAKE)`"
   - get: L:switch_335_73X, Number
+    set: "`${value > current ? 33502 : value < current ? 33501 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_336_73X, Number
+    set: "`${value > current ? 33602 : value < current ? 33601 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_337_73X, Number
     set: "`${value} (>K:ROTOR_BRAKE)`"
   - get: L:switch_338_73X, Number
@@ -591,7 +593,9 @@ shared:
   - get: L:switch_439_73X, Number
     set: "`${value * -0.03 + 43904} (>K:ROTOR_BRAKE)`"
   - get: L:switch_440_73X, Number
+    set: "`${value > current ? 44002 : value < current ? 44001 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_441_73X, Number
+    set: "`${value > current ? 44102 : value < current ? 44101 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_442_73X, Number
   - get: L:switch_443_73X, Number
     set: "`${value * -0.03 + 44304} (>K:ROTOR_BRAKE)`"
@@ -601,6 +605,7 @@ shared:
     set: "`${value * -0.03 + 44504} (>K:ROTOR_BRAKE)`"
   - get: L:switch_446_73X, Number
     set: "`${value * -0.03 + 44604} (>K:ROTOR_BRAKE)`"
+  - get: L:switch_455_73X, Number
   - get: L:switch_4552_73X
     set: 455201 (>K:ROTOR_BRAKE)
   - get: L:switch_460_73X, Number
