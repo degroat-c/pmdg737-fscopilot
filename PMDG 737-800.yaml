@@ -158,13 +158,13 @@ shared:
   - get: L:switch_58_73X, Number
     set: "`${value > current ? 5802 : 5801} (>K:ROTOR_BRAKE)`"
   - get: L:switch_59_73X, Number
-    set: "`${value >= 1 ? 5908 : 5907} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 5907 : 5908} (>K:ROTOR_BRAKE)`"
   - get: L:switch_60_73X, Number
-    set: "`${value >= 1 ? 6008 : 6007} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 6007 : 6008} (>K:ROTOR_BRAKE)`"
   - get: L:switch_61_73X, Number
-    set: "`${value >= 1 ? 6108 : 6107} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 6107 : 6108} (>K:ROTOR_BRAKE)`"
   - get: L:switch_62_73X, Number
-    set: "`${value >= 1 ? 6208 : 6207} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 6207 : 6208} (>K:ROTOR_BRAKE)`"
   - get: L:switch_63_73X
     set: 6301 (>K:ROTOR_BRAKE)
   - get: L:switch_65_73X
@@ -177,6 +177,7 @@ shared:
     set: 7301 (>K:ROTOR_BRAKE)
   - get: L:switch_74_73X
   - get: L:switch_75_73X, Number
+    set: "`${value >= 1 ? 7507 : 7508} (>K:ROTOR_BRAKE)`"
   - get: L:switch_78_73X, Number
   - get: L:switch_79_73X, Number
   - get: L:switch_80_73X, Number
