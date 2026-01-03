@@ -1672,14 +1672,14 @@ shared:
   - get: L:switch_118_73X, number
     set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
   #Radios
-  - get: L:switch_726_73X, number
-    set: "`${value > current ? 72602 : 72601} (>K:ROTOR_BRAKE)`"
-  - get: L:switch_727_73X, number
-    set: "`${value > current ? 72702 : 72701} (>K:ROTOR_BRAKE)`"
-  - get: L:switch_842_73X, number
-    set: "`${value > current ? 84202 : 84201} (>K:ROTOR_BRAKE)`"
-  - get: L:switch_843_73X, number
-    set: "`${value > current ? 84302 : 84301} (>K:ROTOR_BRAKE)`"
+  # - get: L:switch_726_73X, number
+  #   set: "`${value > current ? 72602 : 72601} (>K:ROTOR_BRAKE)`"
+  # - get: L:switch_727_73X, number
+  #   set: "`${value > current ? 72702 : 72701} (>K:ROTOR_BRAKE)`"
+  # - get: L:switch_842_73X, number
+  #   set: "`${value > current ? 84202 : 84201} (>K:ROTOR_BRAKE)`"
+  # - get: L:switch_843_73X, number
+  #   set: "`${value > current ? 84302 : 84301} (>K:ROTOR_BRAKE)`"
   - get: A:ADF ACTIVE FREQUENCY:1, Frequency ADF BCD32
     set: (>K:ADF_ACTIVE_SET)
   - get: A:ADF ACTIVE FREQUENCY:2, Frequency ADF BCD32
