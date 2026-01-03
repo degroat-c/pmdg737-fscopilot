@@ -201,7 +201,9 @@ shared:
     set: "`${value > current ? 10902 : 10901} (>K:ROTOR_BRAKE)`"
   - get: L:switch_110_73X, Number
   - get: L:switch_111_73X, Number
+    set: "`${value > current ? 11102 : value < current ? 11101 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_112_73X, Number
+    set: "`${value > current ? 11202 : value < current ? 11201 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_113_73X, Number
     set: 11301 (>K:ROTOR_BRAKE)
   - get: L:switch_114_73X, Number
@@ -220,7 +222,7 @@ shared:
   - get: L:switch_122_73X, Number
     set: 12201 (>K:ROTOR_BRAKE)
   - get: L:switch_123_73X, Number
-    set: "`${value > current ? 12302 : value < current ? 12301 : ''} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 12308 : 12307} (>K:ROTOR_BRAKE)`"
   - get: L:switch_124_73X
     set: 12401 (>K:ROTOR_BRAKE)
   - get: L:switch_125_73X
