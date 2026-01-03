@@ -1676,6 +1676,10 @@ shared:
     set: "`${value > current ? 72602 : 72601} (>K:ROTOR_BRAKE)`"
   - get: L:switch_727_73X, number
     set: "`${value > current ? 72702 : 72701} (>K:ROTOR_BRAKE)`"
+  - get: L:switch_842_73X, number
+    set: "`${value > current ? 84202 : 84201} (>K:ROTOR_BRAKE)`"
+  - get: L:switch_843_73X, number
+    set: "`${value > current ? 84302 : 84301} (>K:ROTOR_BRAKE)`"
   - get: A:ADF ACTIVE FREQUENCY:1, Frequency ADF BCD32
     set: (>K:ADF_ACTIVE_SET)
   - get: A:ADF ACTIVE FREQUENCY:2, Frequency ADF BCD32
