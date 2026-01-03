@@ -949,7 +949,7 @@ shared:
     set: "`${value * -0.03 + 67404} (>K:ROTOR_BRAKE)`"
   - get: L:switch_677_73X, Number
   - get: L:switch_678_73X, Number
-    set: 67801 (>K:ROTOR_BRAKE)
+    
   - get: L:switch_679_73X, Number
     set: "`${value * 78.6 + -16384} (>K:AXIS_SPOILER_SET)`"
   - get: L:switch_680_73X
