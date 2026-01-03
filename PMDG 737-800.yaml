@@ -1443,7 +1443,7 @@ shared:
     set: "`${value * -0.03 + 202304} (>K:ROTOR_BRAKE)`"
   - get: L:switch_994_73X
   - get: L:switch_1301_73X, Number
-    
+    set: "`${value > current ? 130101 : ''} (>K:ROTOR_BRAKE)`"
   - get: L:switch_1302_73X, Number
     set: 130201 (>K:ROTOR_BRAKE)
   - get: L:switch_1303_73X, Number
