@@ -609,20 +609,7 @@ shared:
   - get: L:switch_455_73X, Number
     #set: "`${value > current ? 45501 : value < current ? 45502 : ''} (>K:ROTOR_BRAKE)`"
 
-   # set: "`${(()=>{const p=current>=50?2:current<=10?0:1;let z=p;if(p===0){z=value>=20?(value>=50?2:1):0;}else if(p===2){z=value<=40?(value<=10?0:1):2;}else{z=value>=50?2:value<=10?0:1;}return z===p?'':(z>p?45501:45502);})()} (>K:ROTOR_BRAKE)`"
-
-    set: "`${(()=>{
-
-     const p = (current >= 50) ? 2 : (current <= 15) ? 0 : 1;  // prev zone
-     const z = (value   >= 50) ? 2 : (value   <= 15) ? 0 : 1;  // new zone
-
-     if (z === p) return '';
-      if (p === 2 && z === 0) return '0 (>B:LANDING_GEAR_Gear_Set)'; // DOWN -> UP
-      if (p === 0 && z === 2) return '1 (>B:LANDING_GEAR_Gear_Set)'; // UP -> DOWN
-
-     return (z > p) ? '45501 (>K:ROTOR_BRAKE)' : '45502 (>K:ROTOR_BRAKE)'; 
-      })()}`"
-
+    set: "`${(()=>{const p=current>=50?2:current<=10?0:1;let z=p;if(p===0){z=value>=20?(value>=50?2:1):0;}else if(p===2){z=value<=40?(value<=10?0:1):2;}else{z=value>=50?2:value<=10?0:1;}return z===p?'':(z>p?45501:45502);})()} (>K:ROTOR_BRAKE)`"
 
   - get: L:switch_4552_73X
     set: 455201 (>K:ROTOR_BRAKE)
