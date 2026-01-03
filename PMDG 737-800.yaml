@@ -606,10 +606,8 @@ shared:
     set: "`${value * -0.03 + 44504} (>K:ROTOR_BRAKE)`"
   - get: L:switch_446_73X, Number
     set: "`${value * -0.03 + 44604} (>K:ROTOR_BRAKE)`"
-  # - get: L:switch_455_73X, Number
-  #   set: "`${value > current ? 45502 : value < current ? 45501 : ''} (>K:ROTOR_BRAKE)`"
-  - get: "(A:GEAR HANDLE POSITION, Bool)"
-    set: "(@) if{ 1 (>B:LANDING_GEAR_Gear_Set) } els{ 0 (>B:LANDING_GEAR_Gear_Set) }"
+  - get: L:switch_455_73X, Number
+    set: "`${value > 50 ? 45501 : value < 32 ? 45501 : 45502} (>K:ROTOR_BRAKE)`"
   - get: L:switch_4552_73X
     set: 455201 (>K:ROTOR_BRAKE)
   - get: L:switch_460_73X, Number
