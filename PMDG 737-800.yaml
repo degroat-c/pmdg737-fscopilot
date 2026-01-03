@@ -1671,7 +1671,7 @@ shared:
   - get: L:switch_220_73X, number
     set: "`${Math.abs(value - current) > 50 ? (value < current ? 22007 : 22008) : (value > current ? 22007 : 22008)} (>K:ROTOR_BRAKE)`"
   - get: L:switch_118_73X, number
-    set: "`${11800 + (value === 0 ? 1 : value === 50 ? 2 : 7)} (>K:ROTOR_BRAKE)`"
+    set: "`${value >= 1 ? 11808 : 11807} (>K:ROTOR_BRAKE)`"
   #Radios
   # - get: L:switch_726_73X, number
   #   set: "`${value > current ? 72602 : 72601} (>K:ROTOR_BRAKE)`"
